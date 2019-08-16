@@ -10,21 +10,54 @@ namespace DBFirstSample
     {
         static void Main(string[] args)
         {
+            // Quiz
+            Quiz();
+
             //CreateCustomer();
-            GetCustomers();
+            //GetCustomers();
 
             //// Delete Customer.
             //DeleteCustomer(3);
             //GetCustomers();
 
-            // Update Customer.
-            UpdateCustomer(1, "Ed Joe");
-            GetCustomers();
+            //// Update Customer.
+            //UpdateCustomer(1, "Ed Joe");
+            //GetCustomers();
 
             Console.WriteLine("Press <ENTER> to continue...");
             Console.ReadLine();
         }
 
+        static void Quiz()
+        {
+            string[] words = { "banana", "stamp", "lamp", "sample" };
+            string[] numbers = { "5", "six", "nine", "three", "seven" };
+            string[] animals = { "fish", "cat", "bear", "bird", "dog" };
+
+            var allThings = words.Union(numbers)
+                .OrderBy(x => x.Length)
+                .Union(animals).Reverse();
+
+            Console.WriteLine(allThings.ElementAt(5));
+            Console.WriteLine(allThings.ElementAt(8));
+
+            string[] trees = { "cedar", "pine", "", "fur", "spruce", "oak" };
+            string[] vehicles = { "car", "truck", "moto", "boat", "plain" };
+
+            var a = trees.Union(vehicles)
+                .Where(x => x.Length < 5);
+            var b = trees.Union(vehicles)
+                .Where(x => x.Length < 5)
+                .OrderBy(x => x.Length);
+
+            var allThings2 = trees.Union(vehicles)
+                .Where(x => x.Length < 5)
+                .OrderBy(x => x.Length)
+                .Union(trees).Reverse();
+
+            int numberOfItems = allThings.Count();
+            Console.WriteLine($"Number of Items: {numberOfItems}");
+        }
 
         static void UpdateCustomer(int id, string name)
         {
