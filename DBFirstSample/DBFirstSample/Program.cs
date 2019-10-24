@@ -11,9 +11,14 @@ namespace DBFirstSample
         static void Main(string[] args)
         {
             // Quiz
-            Quiz();
+            //Quiz();
 
-            //CreateCustomer();
+            CreateCustomer("Joe Cole");
+            GetCustomers();
+
+            //CreateCustomer("Mary Jane");
+            //CreateCustomer("Neo Trinity");
+            //CreateCustomer("John Smith");
             //GetCustomers();
 
             //// Delete Customer.
@@ -101,18 +106,18 @@ namespace DBFirstSample
 
                 foreach (var cust in customers)
                 {
-                    Console.WriteLine($"{cust.Name}");
+                    Console.WriteLine($"{cust.Id}: {cust.Name}");
                 }
             }
         }
 
-        static void CreateCustomer()
+        static void CreateCustomer(string name)
         {
             using (var ctx = new TestEFDBFirstContext())
             {
                 var customer = new Customer()
                 {
-                    Name = "Joe Cole"
+                    Name = name
                 };
 
                 ctx.Customers.Add(customer);

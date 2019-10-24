@@ -2,7 +2,7 @@
 --The following statement creates a table named production.product_audits to record 
 -- information when an INSERT or DELETE event occurs against the production.products table:
 
-DROP TABLE products;
+DROP TABLE products2;
 CREATE TABLE products(
     product_id  INT IDENTITY PRIMARY KEY,
     product_name VARCHAR(255) NOT NULL
@@ -19,10 +19,10 @@ CREATE TABLE product_audits(
 );
 
 --2) Creating an after DML trigger
-
+-- FOR is same as AFTER
 DROP TRIGGER trg_product_audit
 CREATE TRIGGER trg_product_audit
-ON products
+ON products2
 AFTER INSERT, DELETE
 AS
 BEGIN
@@ -55,7 +55,7 @@ END
 
 -- 3) Testing the trigger
 -- The following statement inserts a new row into the production.products table:
-INSERT INTO products(
+INSERT INTO products2(
     product_name
 )
 VALUES (
@@ -73,7 +73,7 @@ FROM
 
 --The following statement deletes a row from the production.products table:
 DELETE FROM 
-    products
+    products2
 WHERE 
     product_id = 2;
 -- As expected, the trigger was fired and inserted the deleted row into the 

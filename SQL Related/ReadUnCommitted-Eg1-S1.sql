@@ -6,6 +6,6 @@
 
 begin tran
 	SELECT * FROM Salaries WHERE EmployeeID = 1
-	update Salaries set Salary=999 where EmployeeID=1
+	update Salaries set Salary=859 where EmployeeID=1
 	waitfor delay '00:00:15'
 rollback
