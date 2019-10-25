@@ -1,0 +1,7 @@
+NOTES: 
+	* Make sure you have selected the appropriate project as the "Default Project" in the Package Manager Console Window
+	* Make sure the project is selected as the "Startup" project
+1. install-package Microsoft.EntityFrameworkCore.SqlServer -Version 2.2.0
+2. Install-Package Microsoft.EntityFrameworkCore.Tools -Version 2.2.0
+3. Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
+4. Scaffold-DbContext "Server=.\SQLEXPRESS;Database=FirstDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer
